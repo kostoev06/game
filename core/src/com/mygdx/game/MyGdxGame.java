@@ -12,35 +12,15 @@ public class MyGdxGame extends ApplicationAdapter {
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		img = new Texture("SovietFlag.jpg");
+		img = new Texture("badlogic.jpg");
 	}
 
 	@Override
 	public void render () {
-		ScreenUtils.clear(0, 1, 1, 0);
-		/*//long start = System.nanoTime();
-		Timer myTimer = new Timer();
-		myTimer.schedule(new TimerTask() {
-			public void run() {
-				ScreenUtils.clear(1, 0, 0, 1);
-			}
-		}, 5000);
-		*/
+		ScreenUtils.clear(1, 0, 0, 1);
 
-		/*try {
-			Thread.sleep(3000);
-		} catch(InterruptedException e) {
-			System.out.println("got interrupted!");
-		}
-		ScreenUtils.clear(1, 1, 0, 1);
-		*/
 		batch.begin();
-		for (int i = 0; i <= 1600; i = i + 200) {
-
-			batch.draw(img, i, 0);
-
-
-		}
+		batch.draw(img, 0, 0);
 
 		batch.end();
 	}
