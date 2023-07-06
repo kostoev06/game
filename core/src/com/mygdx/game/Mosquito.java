@@ -1,31 +1,37 @@
 package com.mygdx.game;
 
+import static com.mygdx.game.MyGdxGame.SCR_HEIGHT;
+import static com.mygdx.game.MyGdxGame.SCR_WIDTH;
+
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.math.MathUtils;
 
 public class Mosquito {
     float x, y;
-    float xSpeed, ySpeed;
+    float vx, vy;
     float width, height;
-    Texture img;
+    int phase, nPhase = 10;
 
-    public Mosquito(float x, float y, float width, float height, Texture img) {
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
-        this.img = img;
+    boolean isAlive = true;
 
-        xSpeed = 20;
-        ySpeed = 20;
+    public Mosquito() {
+        width = height = MathUtils.random(100, 450);
+        x = SCR_WIDTH / 2 - width / 2;
+        y = SCR_HEIGHT / 2 - height / 2;
+
+        vx = MathUtils.random(-7f, 7f);
+        vy = MathUtils.random(-7f, 7f);
+
+        phase = MathUtils.random(0, nPhase - 1);
     }
 
     void checkDirections(float SCR_WIDTH, float SCR_HEIGHT) {
-        if (x < 0 || x > SCR_WIDTH - width) xSpeed = -xSpeed;
-        if (y < 0 || y > SCR_HEIGHT - height) ySpeed = -ySpeed;
+        if (x < 0 || x > SCR_WIDTH - width) vx = -vx;
+        if (y < 0 || y > SCR_HEIGHT - height) vy = -vy;
     }
 
     void move() {
-        x += xSpeed;
-        y += ySpeed;
+        x += vx;
+        y += vy;
     }
 }

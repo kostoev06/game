@@ -25,7 +25,7 @@ public class MyGdxGame extends ApplicationAdapter {
 		img = new Texture("mosq.jpg");
         SCR_WIDTH = Gdx.graphics.getWidth();
         SCR_HEIGHT = Gdx.graphics.getHeight();
-        mosquito = new Mosquito(0, 0, SCR_WIDTH / 10, SCR_HEIGHT / 5, img);
+        mosquito = new Mosquito();
     }
 
     @Override
